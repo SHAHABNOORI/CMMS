@@ -1,0 +1,425 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dbs_CMMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_AnbarGhataatYadaki">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="300" />
+          <Property Name="NameGheteh" Type="nvarchar" MaxLength="300" />
+          <Property Name="ShomarehFani" Type="nvarchar" MaxLength="300" />
+          <Property Name="Mojoodi" Type="bigint" />
+          <Property Name="NoghtehSefaresh" Type="bigint" />
+          <Property Name="Discription" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="tbl_Ghaleb">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameGhaleb" Type="nvarchar" MaxLength="150" />
+          <Property Name="Code" Type="nvarchar" MaxLength="150" />
+          <Property Name="TypeGhaleb" Type="nvarchar" MaxLength="150" />
+          <Property Name="Tool" Type="nvarchar" MaxLength="150" />
+          <Property Name="Arz" Type="nvarchar" MaxLength="150" />
+          <Property Name="Ertefa" Type="nchar" MaxLength="10" />
+          <Property Name="Vazn" Type="nvarchar" MaxLength="150" />
+          <Property Name="UsableMaterials" Type="nvarchar" MaxLength="150" />
+          <Property Name="Address" Type="nvarchar" MaxLength="250" />
+          <Property Name="TarikhSakht" Type="date" />
+          <Property Name="tarikhShorooBeKar" Type="date" />
+          <Property Name="sharayetneghahdari" Type="nvarchar" MaxLength="500" />
+          <Property Name="GensGhaleb" Type="nvarchar" MaxLength="150" />
+          <Property Name="VaziyatGhaleb" Type="bit" />
+          <Property Name="VaziyatKharid" Type="nvarchar" MaxLength="150" />
+          <Property Name="SystemKhoonakKonnadeh" Type="nvarchar" MaxLength="150" />
+          <Property Name="TypeGiris" Type="nvarchar" MaxLength="150" />
+          <Property Name="OmreMofid" Type="nvarchar" MaxLength="150" />
+          <Property Name="Sazandeh" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="tbl_GhataatMasrafiMashinAlat">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDShenasnamehMoshinAlat" Type="bigint" />
+          <Property Name="IDAnbarGhataatYadaki" Type="bigint" />
+          <Property Name="Tedad" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_ShenasnamehMoshinAlat">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameDastgha" Type="nvarchar(max)" />
+          <Property Name="CodeDastghah" Type="nvarchar(max)" />
+          <Property Name="ModelDastGhah" Type="nvarchar(max)" />
+          <Property Name="Size" Type="nvarchar(max)" />
+          <Property Name="Vazn" Type="nvarchar(max)" />
+          <Property Name="Zarfiyat" Type="nvarchar(max)" />
+          <Property Name="AmerMofid" Type="nvarchar(max)" />
+          <Property Name="SharkatSazandeh" Type="nvarchar(max)" />
+          <Property Name="KeshvarSazandeh" Type="nvarchar(max)" />
+          <Property Name="TaiedKonnadeh" Type="nvarchar(max)" />
+          <Property Name="AdressNamayandegi" Type="nvarchar(max)" />
+          <Property Name="TelphoneNamayandegi" Type="nvarchar(max)" />
+          <Property Name="Bargh" Type="bit" />
+          <Property Name="Ab" Type="bit" />
+          <Property Name="Hava" Type="bit" />
+          <Property Name="Ghaz" Type="bit" />
+          <Property Name="TarikhSakht" Type="date" />
+          <Property Name="TarikhBahrehBardari" Type="date" />
+          <Property Name="TarikhTahiyeEttelaat" Type="date" />
+        </EntityType>
+        <EntityType Name="tbl_UsableMaterialsGhaleb">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="IDGhaleb" Type="bigint" Nullable="false" />
+          <Property Name="Caption" Type="nvarchar" MaxLength="250" />
+          <Property Name="Type" Type="nvarchar" MaxLength="250" />
+          <Property Name="TimeServices" Type="nvarchar" MaxLength="250" />
+          <Property Name="UsableGhataatYadaki" Type="nvarchar" MaxLength="250" />
+          <Property Name="Peryod" Type="nvarchar" MaxLength="250" />
+          <Property Name="UsableMaterials" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <Association Name="FK_tbl_GhataatMasrafiMashinAlat_tbl_ShenasnamehMoshinAlat">
+          <End Role="tbl_ShenasnamehMoshinAlat" Type="Self.tbl_ShenasnamehMoshinAlat" Multiplicity="0..1" />
+          <End Role="tbl_GhataatMasrafiMashinAlat" Type="Self.tbl_GhataatMasrafiMashinAlat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_ShenasnamehMoshinAlat">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_GhataatMasrafiMashinAlat">
+              <PropertyRef Name="IDShenasnamehMoshinAlat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="GregorianToPersianDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
+          <Parameter Name="GregorianDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="PersianDateAddDays" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
+          <Parameter Name="PersianDate" Type="nvarchar" Mode="In" />
+          <Parameter Name="Days" Type="int" Mode="In" />
+        </Function>
+        <Function Name="PersianDateToday" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar" />
+        <Function Name="PersianDateToGregorian" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="datetime">
+          <Parameter Name="PersianDate" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="dbs_CMMSModelStoreContainer">
+          <EntitySet Name="tbl_AnbarGhataatYadaki" EntityType="Self.tbl_AnbarGhataatYadaki" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Ghaleb" EntityType="Self.tbl_Ghaleb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_GhataatMasrafiMashinAlat" EntityType="Self.tbl_GhataatMasrafiMashinAlat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_ShenasnamehMoshinAlat" EntityType="Self.tbl_ShenasnamehMoshinAlat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_UsableMaterialsGhaleb" EntityType="Self.tbl_UsableMaterialsGhaleb" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tbl_GhataatMasrafiMashinAlat_tbl_ShenasnamehMoshinAlat" Association="Self.FK_tbl_GhataatMasrafiMashinAlat_tbl_ShenasnamehMoshinAlat">
+            <End Role="tbl_ShenasnamehMoshinAlat" EntitySet="tbl_ShenasnamehMoshinAlat" />
+            <End Role="tbl_GhataatMasrafiMashinAlat" EntitySet="tbl_GhataatMasrafiMashinAlat" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbs_CMMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="dbs_CMMSEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_AnbarGhataatYadaki" EntityType="dbs_CMMSModel.tbl_AnbarGhataatYadaki" />
+          <EntitySet Name="tbl_Ghaleb" EntityType="dbs_CMMSModel.tbl_Ghaleb" />
+          <EntitySet Name="tbl_GhataatMasrafiMashinAlat" EntityType="dbs_CMMSModel.tbl_GhataatMasrafiMashinAlat" />
+          <EntitySet Name="tbl_ShenasnamehMoshinAlat" EntityType="dbs_CMMSModel.tbl_ShenasnamehMoshinAlat" />
+          <EntitySet Name="tbl_UsableMaterialsGhaleb" EntityType="dbs_CMMSModel.tbl_UsableMaterialsGhaleb" />
+          <AssociationSet Name="FK_tbl_GhataatMasrafiMashinAlat_tbl_ShenasnamehMoshinAlat" Association="dbs_CMMSModel.FK_tbl_GhataatMasrafiMashinAlat_tbl_ShenasnamehMoshinAlat">
+            <End Role="tbl_ShenasnamehMoshinAlat" EntitySet="tbl_ShenasnamehMoshinAlat" />
+            <End Role="tbl_GhataatMasrafiMashinAlat" EntitySet="tbl_GhataatMasrafiMashinAlat" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <EntityType Name="tbl_AnbarGhataatYadaki">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="NameGheteh" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ShomarehFani" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Mojoodi" Type="Int64" />
+          <Property Name="NoghtehSefaresh" Type="Int64" />
+          <Property Name="Discription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_Ghaleb">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameGhaleb" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="TypeGhaleb" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Vazn" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="UsableMaterials" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Tool" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Arz" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Ertefa" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="TarikhSakht" Type="DateTime" Precision="0" />
+          <Property Name="tarikhShorooBeKar" Type="DateTime" Precision="0" />
+          <Property Name="sharayetneghahdari" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="GensGhaleb" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="VaziyatGhaleb" Type="Boolean" />
+          <Property Name="VaziyatKharid" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="SystemKhoonakKonnadeh" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="TypeGiris" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="OmreMofid" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Sazandeh" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_GhataatMasrafiMashinAlat">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDShenasnamehMoshinAlat" Type="Int64" />
+          <Property Name="IDAnbarGhataatYadaki" Type="Int64" />
+          <Property Name="Tedad" Type="Int32" />
+          <NavigationProperty Name="tbl_ShenasnamehMoshinAlat" Relationship="dbs_CMMSModel.FK_tbl_GhataatMasrafiMashinAlat_tbl_ShenasnamehMoshinAlat" FromRole="tbl_GhataatMasrafiMashinAlat" ToRole="tbl_ShenasnamehMoshinAlat" />
+        </EntityType>
+        <EntityType Name="tbl_ShenasnamehMoshinAlat">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameDastgha" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CodeDastghah" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ModelDastGhah" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Size" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Vazn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Zarfiyat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AmerMofid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SharkatSazandeh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="KeshvarSazandeh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TaiedKonnadeh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AdressNamayandegi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TelphoneNamayandegi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Bargh" Type="Boolean" />
+          <Property Name="Ab" Type="Boolean" />
+          <Property Name="Hava" Type="Boolean" />
+          <Property Name="Ghaz" Type="Boolean" />
+          <Property Name="TarikhSakht" Type="DateTime" Precision="0" />
+          <Property Name="TarikhBahrehBardari" Type="DateTime" Precision="0" />
+          <Property Name="TarikhTahiyeEttelaat" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="tbl_GhataatMasrafiMashinAlat" Relationship="dbs_CMMSModel.FK_tbl_GhataatMasrafiMashinAlat_tbl_ShenasnamehMoshinAlat" FromRole="tbl_ShenasnamehMoshinAlat" ToRole="tbl_GhataatMasrafiMashinAlat" />
+        </EntityType>
+        <EntityType Name="tbl_UsableMaterialsGhaleb">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="IDGhaleb" Type="Int64" Nullable="false" />
+          <Property Name="Caption" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TimeServices" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="UsableGhataatYadaki" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Peryod" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="UsableMaterials" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_tbl_GhataatMasrafiMashinAlat_tbl_ShenasnamehMoshinAlat">
+          <End Type="dbs_CMMSModel.tbl_ShenasnamehMoshinAlat" Role="tbl_ShenasnamehMoshinAlat" Multiplicity="0..1" />
+          <End Type="dbs_CMMSModel.tbl_GhataatMasrafiMashinAlat" Role="tbl_GhataatMasrafiMashinAlat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_ShenasnamehMoshinAlat">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_GhataatMasrafiMashinAlat">
+              <PropertyRef Name="IDShenasnamehMoshinAlat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbs_CMMSModelStoreContainer" CdmEntityContainer="dbs_CMMSEntities1">
+          <EntitySetMapping Name="tbl_AnbarGhataatYadaki">
+            <EntityTypeMapping TypeName="dbs_CMMSModel.tbl_AnbarGhataatYadaki">
+              <MappingFragment StoreEntitySet="tbl_AnbarGhataatYadaki">
+                <ScalarProperty Name="Discription" ColumnName="Discription" />
+                <ScalarProperty Name="NoghtehSefaresh" ColumnName="NoghtehSefaresh" />
+                <ScalarProperty Name="Mojoodi" ColumnName="Mojoodi" />
+                <ScalarProperty Name="ShomarehFani" ColumnName="ShomarehFani" />
+                <ScalarProperty Name="NameGheteh" ColumnName="NameGheteh" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Ghaleb">
+            <EntityTypeMapping TypeName="dbs_CMMSModel.tbl_Ghaleb">
+              <MappingFragment StoreEntitySet="tbl_Ghaleb">
+                <ScalarProperty Name="Sazandeh" ColumnName="Sazandeh" />
+                <ScalarProperty Name="OmreMofid" ColumnName="OmreMofid" />
+                <ScalarProperty Name="TypeGiris" ColumnName="TypeGiris" />
+                <ScalarProperty Name="SystemKhoonakKonnadeh" ColumnName="SystemKhoonakKonnadeh" />
+                <ScalarProperty Name="VaziyatKharid" ColumnName="VaziyatKharid" />
+                <ScalarProperty Name="VaziyatGhaleb" ColumnName="VaziyatGhaleb" />
+                <ScalarProperty Name="GensGhaleb" ColumnName="GensGhaleb" />
+                <ScalarProperty Name="sharayetneghahdari" ColumnName="sharayetneghahdari" />
+                <ScalarProperty Name="tarikhShorooBeKar" ColumnName="tarikhShorooBeKar" />
+                <ScalarProperty Name="TarikhSakht" ColumnName="TarikhSakht" />
+                <ScalarProperty Name="Ertefa" ColumnName="Ertefa" />
+                <ScalarProperty Name="Arz" ColumnName="Arz" />
+                <ScalarProperty Name="Tool" ColumnName="Tool" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="UsableMaterials" ColumnName="UsableMaterials" />
+                <ScalarProperty Name="Vazn" ColumnName="Vazn" />
+                <ScalarProperty Name="TypeGhaleb" ColumnName="TypeGhaleb" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="NameGhaleb" ColumnName="NameGhaleb" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_GhataatMasrafiMashinAlat">
+            <EntityTypeMapping TypeName="dbs_CMMSModel.tbl_GhataatMasrafiMashinAlat">
+              <MappingFragment StoreEntitySet="tbl_GhataatMasrafiMashinAlat">
+                <ScalarProperty Name="Tedad" ColumnName="Tedad" />
+                <ScalarProperty Name="IDAnbarGhataatYadaki" ColumnName="IDAnbarGhataatYadaki" />
+                <ScalarProperty Name="IDShenasnamehMoshinAlat" ColumnName="IDShenasnamehMoshinAlat" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_ShenasnamehMoshinAlat">
+            <EntityTypeMapping TypeName="dbs_CMMSModel.tbl_ShenasnamehMoshinAlat">
+              <MappingFragment StoreEntitySet="tbl_ShenasnamehMoshinAlat">
+                <ScalarProperty Name="TarikhTahiyeEttelaat" ColumnName="TarikhTahiyeEttelaat" />
+                <ScalarProperty Name="TarikhBahrehBardari" ColumnName="TarikhBahrehBardari" />
+                <ScalarProperty Name="TarikhSakht" ColumnName="TarikhSakht" />
+                <ScalarProperty Name="Ghaz" ColumnName="Ghaz" />
+                <ScalarProperty Name="Hava" ColumnName="Hava" />
+                <ScalarProperty Name="Ab" ColumnName="Ab" />
+                <ScalarProperty Name="Bargh" ColumnName="Bargh" />
+                <ScalarProperty Name="TelphoneNamayandegi" ColumnName="TelphoneNamayandegi" />
+                <ScalarProperty Name="AdressNamayandegi" ColumnName="AdressNamayandegi" />
+                <ScalarProperty Name="TaiedKonnadeh" ColumnName="TaiedKonnadeh" />
+                <ScalarProperty Name="KeshvarSazandeh" ColumnName="KeshvarSazandeh" />
+                <ScalarProperty Name="SharkatSazandeh" ColumnName="SharkatSazandeh" />
+                <ScalarProperty Name="AmerMofid" ColumnName="AmerMofid" />
+                <ScalarProperty Name="Zarfiyat" ColumnName="Zarfiyat" />
+                <ScalarProperty Name="Vazn" ColumnName="Vazn" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="ModelDastGhah" ColumnName="ModelDastGhah" />
+                <ScalarProperty Name="CodeDastghah" ColumnName="CodeDastghah" />
+                <ScalarProperty Name="NameDastgha" ColumnName="NameDastgha" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_UsableMaterialsGhaleb">
+            <EntityTypeMapping TypeName="dbs_CMMSModel.tbl_UsableMaterialsGhaleb">
+              <MappingFragment StoreEntitySet="tbl_UsableMaterialsGhaleb">
+                <ScalarProperty Name="UsableMaterials" ColumnName="UsableMaterials" />
+                <ScalarProperty Name="Peryod" ColumnName="Peryod" />
+                <ScalarProperty Name="UsableGhataatYadaki" ColumnName="UsableGhataatYadaki" />
+                <ScalarProperty Name="TimeServices" ColumnName="TimeServices" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Caption" ColumnName="Caption" />
+                <ScalarProperty Name="IDGhaleb" ColumnName="IDGhaleb" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="dbs_CMMSModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="dbs_CMMSModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="dbs_CMMSModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="dbs_CMMSModel.Store.sp_helpdiagramdefinition" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="dbs_CMMSModel.Store.sp_helpdiagrams" />
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="dbs_CMMSModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="dbs_CMMSModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

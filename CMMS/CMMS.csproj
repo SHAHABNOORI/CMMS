@@ -1,0 +1,409 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EBD57D0D-B039-4CBE-97D6-3C87B757E340}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CMMS</RootNamespace>
+    <AssemblyName>CMMS</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BehComponents">
+      <HintPath>C:\Users\Amin\Desktop\[FVCS95051] Accounting_Inventory_C_Sharp\Files_and_codes\S01\BehComponents.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar2, Version=11.3.0.0, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Accounts.Wpf">
+      <HintPath>C:\Users\Amin\Desktop\New folder\Stimulsoft.Accounts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Base, Version=2018.1.7.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Amin\Desktop\New folder\Stimulsoft.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Client.Designer, Version=2018.1.7.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Amin\Desktop\New folder\Stimulsoft.Client.Designer.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Controls, Version=2018.1.7.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Amin\Desktop\New folder\Stimulsoft.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Controls.Win, Version=2018.1.7.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Amin\Desktop\New folder\Stimulsoft.Controls.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Data, Version=2018.1.7.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Amin\Desktop\New folder\Stimulsoft.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Editor, Version=2018.1.7.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Amin\Desktop\New folder\Stimulsoft.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Editor.Wpf, Version=2018.1.7.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Amin\Desktop\New folder\Stimulsoft.Editor.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report, Version=2018.1.7.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Amin\Desktop\New folder\Stimulsoft.Report.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Check, Version=2018.1.7.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Amin\Desktop\New folder\Stimulsoft.Report.Check.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Design, Version=2018.1.7.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Amin\Desktop\New folder\Stimulsoft.Report.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Helper, Version=2018.1.7.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Amin\Desktop\New folder\Stimulsoft.Report.Helper.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Win, Version=2018.1.7.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Amin\Desktop\New folder\Stimulsoft.Report.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Wpf, Version=2018.1.7.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Amin\Desktop\New folder\Stimulsoft.Report.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Anbar\frmAddAnbarGhtaatYadaki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Anbar\frmAddAnbarGhtaatYadaki.Designer.cs">
+      <DependentUpon>frmAddAnbarGhtaatYadaki.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Anbar\frmAnbarGhtaatYadaki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Anbar\frmAnbarGhtaatYadaki.Designer.cs">
+      <DependentUpon>frmAnbarGhtaatYadaki.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Anbar\frmEditAnbarGhtaatYadaki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Anbar\frmEditAnbarGhtaatYadaki.Designer.cs">
+      <DependentUpon>frmEditAnbarGhtaatYadaki.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dtos\ShenasNamehDto.cs" />
+    <Compile Include="Dtos\ShenasNamehGalebDto.cs" />
+    <Compile Include="Ghaleb\FrmAddGhaleb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ghaleb\FrmAddGhaleb.Designer.cs">
+      <DependentUpon>FrmAddGhaleb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ghaleb\frmAddViewGhaleb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ghaleb\frmAddViewGhaleb.Designer.cs">
+      <DependentUpon>frmAddViewGhaleb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ghaleb\frmEditGhaleb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ghaleb\frmEditGhaleb.Designer.cs">
+      <DependentUpon>frmEditGhaleb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ghaleb\FrmEditViewGhaleb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ghaleb\FrmEditViewGhaleb.Designer.cs">
+      <DependentUpon>FrmEditViewGhaleb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ghaleb\FrmGhaleb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ghaleb\FrmGhaleb.Designer.cs">
+      <DependentUpon>FrmGhaleb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ghaleb\FrmViewGhaleb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ghaleb\FrmViewGhaleb.Designer.cs">
+      <DependentUpon>FrmViewGhaleb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\PersianDateTimeHelper.cs" />
+    <Compile Include="Mashin\GhataatMasrafi\FrmAddGhataatMasrafi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mashin\GhataatMasrafi\FrmAddGhataatMasrafi.Designer.cs">
+      <DependentUpon>FrmAddGhataatMasrafi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mashin\GhataatMasrafi\FrmSearchAnbarGhataatYadaki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mashin\GhataatMasrafi\FrmSearchAnbarGhataatYadaki.Designer.cs">
+      <DependentUpon>FrmSearchAnbarGhataatYadaki.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mashin\Shenasnameh\frmEditShenasnamehMashinAlat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mashin\Shenasnameh\frmEditShenasnamehMashinAlat.Designer.cs">
+      <DependentUpon>frmEditShenasnamehMashinAlat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mashin\Shenasnameh\frmAddShenasnamehMashinAlat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mashin\Shenasnameh\frmAddShenasnamehMashinAlat.Designer.cs">
+      <DependentUpon>frmAddShenasnamehMashinAlat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mashin\Shenasnameh\frmShenasnamehMashinAlat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mashin\Shenasnameh\frmShenasnamehMashinAlat.Designer.cs">
+      <DependentUpon>frmShenasnamehMashinAlat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mashin\Shenasnameh\frmViewShenasnamehMashinAlat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mashin\Shenasnameh\frmViewShenasnamehMashinAlat.Designer.cs">
+      <DependentUpon>frmViewShenasnamehMashinAlat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mashin\GhataatMasrafi\FrmGhataatMasrafi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mashin\GhataatMasrafi\FrmGhataatMasrafi.Designer.cs">
+      <DependentUpon>FrmGhataatMasrafi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCMMS.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCMMS.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCMMS.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCMMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCMMS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCMMS.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SabtMashin\frmAddSabtSavabeghMashin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SabtMashin\frmAddSabtSavabeghMashin.Designer.cs">
+      <DependentUpon>frmAddSabtSavabeghMashin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SabtMashin\frmEditSabtSavabeghMashin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SabtMashin\frmEditSabtSavabeghMashin.Designer.cs">
+      <DependentUpon>frmEditSabtSavabeghMashin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SabtMashin\FrmSabtSavabeghMashin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SabtMashin\FrmSabtSavabeghMashin.Designer.cs">
+      <DependentUpon>FrmSabtSavabeghMashin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tbl_AnbarGhataatYadaki.cs">
+      <DependentUpon>ModelCMMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_Ghaleb.cs">
+      <DependentUpon>ModelCMMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_GhataatMasrafiMashinAlat.cs">
+      <DependentUpon>ModelCMMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_ShenasnamehMoshinAlat.cs">
+      <DependentUpon>ModelCMMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_UsableMaterialsGhaleb.cs">
+      <DependentUpon>ModelCMMS.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Anbar\frmAddAnbarGhtaatYadaki.resx">
+      <DependentUpon>frmAddAnbarGhtaatYadaki.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Anbar\frmAnbarGhtaatYadaki.resx">
+      <DependentUpon>frmAnbarGhtaatYadaki.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Anbar\frmEditAnbarGhtaatYadaki.resx">
+      <DependentUpon>frmEditAnbarGhtaatYadaki.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ghaleb\FrmAddGhaleb.resx">
+      <DependentUpon>FrmAddGhaleb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ghaleb\frmAddViewGhaleb.resx">
+      <DependentUpon>frmAddViewGhaleb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ghaleb\frmEditGhaleb.resx">
+      <DependentUpon>frmEditGhaleb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ghaleb\FrmEditViewGhaleb.resx">
+      <DependentUpon>FrmEditViewGhaleb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ghaleb\FrmGhaleb.resx">
+      <DependentUpon>FrmGhaleb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ghaleb\FrmViewGhaleb.resx">
+      <DependentUpon>FrmViewGhaleb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mashin\GhataatMasrafi\FrmAddGhataatMasrafi.resx">
+      <DependentUpon>FrmAddGhataatMasrafi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mashin\GhataatMasrafi\FrmSearchAnbarGhataatYadaki.resx">
+      <DependentUpon>FrmSearchAnbarGhataatYadaki.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mashin\Shenasnameh\frmEditShenasnamehMashinAlat.resx">
+      <DependentUpon>frmEditShenasnamehMashinAlat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mashin\Shenasnameh\frmAddShenasnamehMashinAlat.resx">
+      <DependentUpon>frmAddShenasnamehMashinAlat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mashin\Shenasnameh\frmShenasnamehMashinAlat.resx">
+      <DependentUpon>frmShenasnamehMashinAlat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mashin\Shenasnameh\frmViewShenasnamehMashinAlat.resx">
+      <DependentUpon>frmViewShenasnamehMashinAlat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mashin\GhataatMasrafi\FrmGhataatMasrafi.resx">
+      <DependentUpon>FrmGhataatMasrafi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SabtMashin\frmAddSabtSavabeghMashin.resx">
+      <DependentUpon>frmAddSabtSavabeghMashin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SabtMashin\FrmSabtSavabeghMashin.resx">
+      <DependentUpon>FrmSabtSavabeghMashin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <EntityDeploy Include="ModelCMMS.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelCMMS.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelCMMS.edmx.diagram">
+      <DependentUpon>ModelCMMS.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CMMS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tractor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ModelCMMS.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelCMMS.edmx</DependentUpon>
+      <LastGenOutput>ModelCMMS.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelCMMS.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelCMMS.edmx</DependentUpon>
+      <LastGenOutput>ModelCMMS.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2f53c41771b84b398c3c18a27bd7a0a9" Name="Diagram1">
+        <EntityTypeShape EntityType="dbs_CMMSModel.tbl_AnbarGhataatYadaki" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="dbs_CMMSModel.tbl_Ghaleb" Width="1.5" PointX="0.75" PointY="0.5" />
+        <EntityTypeShape EntityType="dbs_CMMSModel.tbl_GhataatMasrafiMashinAlat" Width="1.5" PointX="5.625" PointY="5.25" />
+        <EntityTypeShape EntityType="dbs_CMMSModel.tbl_ShenasnamehMoshinAlat" Width="1.5" PointX="0.75" PointY="5.125" />
+        <EntityTypeShape EntityType="dbs_CMMSModel.tbl_UsableMaterialsGhaleb" Width="1.5" PointX="3" PointY="1" />
+        <AssociationConnector Association="dbs_CMMSModel.FK_tbl_GhataatMasrafiMashinAlat_tbl_ShenasnamehMoshinAlat" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
